@@ -1,0 +1,42 @@
+version: "3.1"
+
+#include slots in the training stories
+stories:
+- story: weather long
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather
+  - action: utter_ask_location
+  - intent: city_info
+    entities:
+      - location: New York
+  - slot_was_set:
+      - location: New York
+  - action: action_getting_weather
+  - intent: thanks
+  - action: utter_welcome
+
+- story: weather short
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather_for_location
+    entities:
+      - location: London
+  - slot_was_set:
+      - location: London
+  - action: action_getting_weather
+  - intent: thanks
+  - action: utter_welcome
+
+- story: New Story
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: weather_for_location
+    - entities:
+        - location: London
+    - slot_was_set:
+        - location: London
+    - action: action_getting_weather

@@ -1,0 +1,13 @@
+version: "3.1"
+#define rules that are a way to describe short pieces of conversations that always go the same way
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
